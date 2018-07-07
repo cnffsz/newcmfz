@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "../mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.cmfz.dao.AdminDao">
+
+    <resultMap type="com.baizhi.cmfz.entity.Admin" id="adminResultMap">
+
+
+        <id property="mgrId" column="mgr_id"/>
+        <result property="mgrName" column="mgr_name"/>
+        <result property="mgrPwd" column="mgr_pwd"/>
+        <result property="salt" column="salt"/>
+        <result property="mgrStatus" column="mgr_Status"/>
+
+
+    </resultMap>
+    <select id="selectByName" resultMap="adminResultMap">
+        select * from manager where mgr_name=#{mgrname}
+    </select>
+
+    <!--<insert id="insert" >
+
+        insert into d_user values(#{userId}, #{email},#{nickName},#{password},#{regTime},#{salt})
+
+    </insert>-->
+
+
+
+</mapper>
