@@ -1,41 +1,25 @@
 package com.baizhi.cmfz.entity;
 
+import org.jeecgframework.poi.excel.annotation.Excel;
+
 /**
  * Created by fu on 2018/7/7.
  */
 public class Master {
 
-    private String masterId;
+    private int masterId;
+    @Excel(name="上师姓名",orderNum = "1",needMerge = true)
     private String masterName;
-    private String MasterPhoto;
-    private String MasterSummary;
+    @Excel(name="上师简介",orderNum = "2",needMerge = true)
+    private String masterSummary;
 
+    private String masterPhoto;
 
-    public Master() {
-    }
-
-    public Master(String masterId, String masterName, String masterPhoto, String masterSummary) {
-        this.masterId = masterId;
-        this.masterName = masterName;
-        MasterPhoto = masterPhoto;
-        MasterSummary = masterSummary;
-    }
-
-    @Override
-    public String toString() {
-        return "Master{" +
-                "masterId='" + masterId + '\'' +
-                ", masterName='" + masterName + '\'' +
-                ", MasterPhoto='" + MasterPhoto + '\'' +
-                ", MasterSummary='" + MasterSummary + '\'' +
-                '}';
-    }
-
-    public String getMasterId() {
+    public int getMasterId() {
         return masterId;
     }
 
-    public void setMasterId(String masterId) {
+    public void setMasterId(int masterId) {
         this.masterId = masterId;
     }
 
@@ -48,18 +32,37 @@ public class Master {
     }
 
     public String getMasterPhoto() {
-        return MasterPhoto;
+        return masterPhoto;
     }
 
     public void setMasterPhoto(String masterPhoto) {
-        MasterPhoto = masterPhoto;
+        this.masterPhoto = masterPhoto;
     }
 
     public String getMasterSummary() {
-        return MasterSummary;
+        return masterSummary;
     }
 
     public void setMasterSummary(String masterSummary) {
-        MasterSummary = masterSummary;
+        this.masterSummary = masterSummary;
+    }
+
+    public Master(String masterName, String masterPhoto, String masterSummary) {
+        this.masterName = masterName;
+        this.masterPhoto = masterPhoto;
+        this.masterSummary = masterSummary;
+    }
+
+    public Master() {
+    }
+
+    @Override
+    public String toString() {
+        return "Master{" +
+                "masterId=" + masterId +
+                ", masterName='" + masterName + '\'' +
+                ", masterPhoto='" + masterPhoto + '\'' +
+                ", masterSummary='" + masterSummary + '\'' +
+                '}';
     }
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
          pageEncoding="utf-8" isELIgnored="false" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -20,7 +21,7 @@
                 $("#tt").tabs("add",{
                     closable:true,
                     title:menuName,
-                    href:"${pageContext.request.contextPath}/"+"/main/queryPicture.jsp",
+                    href:"${pageContext.request.contextPath}/"+path,
                 });
             }
         }
@@ -40,7 +41,6 @@
 
                         var content="";
                         $.each(obj.secondMenuList,function(index1,obj1){
-
                             content+="<p style='text-align: center'><a class=\"easyui-linkbutton\" data-options=\"iconCls:'"+obj1.menuIcon+"',plain:true\" onclick=\"addTab('"+obj1.menuName+"','"+obj1.menuUrl+"')\">"+obj1.menuName+"</a></p>";
                         });
 
