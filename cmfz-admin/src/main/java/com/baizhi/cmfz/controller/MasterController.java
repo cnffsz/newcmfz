@@ -43,18 +43,27 @@ public class MasterController {
 
     @RequestMapping("/addMaster")
     @ResponseBody
-    public String addMaster(Master master,MultipartFile masterFile,HttpSession session) throws IOException {
+    public String addMaster(Master master,MultipartFile masterFile1,HttpSession session) throws IOException {
 
         System.out.println("这是新增的上师"+master);
-        String realPath=session.getServletContext().getRealPath("").replace("admin","upload/master");
-        String oldName = masterFile.getOriginalFilename();
+        String realPath=session.getServletContext().getRealPath("").replace("cmfz#admin","upload");
+
+        System.out.println("这是真实路径"+realPath);
+
+        String oldName = masterFile1.getOriginalFilename();
+        System.out.println(oldName);
         File dir = new File(realPath,oldName);
+
+
         if(!dir.exists()){
             dir.mkdirs();
         }
-        masterFile.transferTo(dir);
-        master.setMasterPhoto("/"+oldName);
+        masterFile1.transferTo(dir);
+        master.setMasterPhoto(oldName);
+        master.setMasterId(100);
+        System.out.println(master);
         boolean b = masterService.addMaster(master);
+
         if(b){
             return "success";
         }
@@ -96,7 +105,7 @@ public class MasterController {
             subfile.transferTo(f);
             List<Master> masters = ExcelImportUtil.importExcel(f,Master.class, params);
             for (Master master : masters) {
-                master.setMasterPhoto(null);
+                master.setMasterPhoto("sun.jpg");
                 masterService.addMaster(master);
             }
             if(masters.isEmpty()){

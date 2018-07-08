@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 		 pageEncoding="utf-8" isELIgnored="false" %>
+
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/datagrid-detailview.js"></script>
 
 <script type="text/javascript">
     $(function() {
+		// 主表格
 
         $('#ttMaster').datagrid({
-            height:538,
+
             remoteSort:false,
             singleSelect:true,
             nowrap:false,
@@ -18,8 +20,8 @@
                 {field:'masterPhoto',title:'上师图像名',width:80,sortable:true},
                 {field:'masterSummary',title:'上师简介',width:200,sortable:true},
                 {field:'status',title:'操作',width:60,align:'center',formatter:function(value,row,index){
-                    //$("#del").linkbutton({});
-                    return "<a class='easyui-linkbutton' data-options=\"height:20,iconCls:'icon-edit'\" onClick='modMasterBtn()'>修改</a>";
+
+                    return "<a class='easyui-linkbutton' data-options=\"height:20,iconCls:'icon-edit'\" onClick='modMasterBtn(this)'>修改</a>";
                 }}
             ]],
             onLoadSuccess:function(){
@@ -33,7 +35,7 @@
             view: detailview,
             detailFormatter: function(rowIndex, rowData){
                 return '<table><tr>' +
-                    '<td rowspan=2 style="border:0"><img src="/admin/upload/master' + rowData.masterPhoto + '" style="height:50px;"></td>' +
+                    '<td rowspan=2 style="border:0"><img src="/upload/' + rowData.masterPhoto + '" style="height:100px;"></td>' +
                     '<td style="border:0">' +
                     '</td>' +
                     '</tr></table>';
@@ -59,7 +61,7 @@
                         handler:function(){
                             //提交
                             $("#ffMaster").form("submit",{
-                                url:"${pageContext.request.contextPath}/master/addMaster",
+                                url:"${pageContext.request.contextPath}/master/addMaster.do",
                                 onSubmit:function(){
                                     return $("#ffMaster").form("validate");
                                 },
