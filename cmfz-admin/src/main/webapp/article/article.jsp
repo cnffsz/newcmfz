@@ -7,7 +7,7 @@
 $(function() {
 
     $('#ttArticle').datagrid({
-		height:570,
+		//height:570,这一行是设置文章列表的高度如何不设置则下面的分页工具栏直接贴着数据展示
         remoteSort:false,
         singleSelect:true,
         nowrap:false,

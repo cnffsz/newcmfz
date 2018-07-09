@@ -17,5 +17,7 @@ public interface MasterDao {
     public boolean deleteMaster(Master master);
     public boolean insertMaster(Master master);
 
+    public  List<Master> selectAll();
+
 
 }

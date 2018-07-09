@@ -2,6 +2,7 @@ package com.baizhi.cmfz.service;
 
 import com.baizhi.cmfz.entity.Master;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -11,4 +12,5 @@ public interface MasterService {
     public Map<String,Object> queryMaster(int totalSize, int pageIndex, String sele, String masterName);
     public boolean addMaster(Master master);
     public boolean modifyMaster(Master master);
+    public List<Master> queryAll();
 }

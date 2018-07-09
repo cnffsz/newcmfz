@@ -15,6 +15,10 @@
         limit #{begin},#{showSize}
     </select>
 
+    <select id="selectAll" resultMap="MasterMap">
+        select master_id,master_name
+        from master
+    </select>
     <select id="countMaster" resultType="int">
         select count(*) from master
         <if test="sele!=null">where master_name like #{masterName}</if>

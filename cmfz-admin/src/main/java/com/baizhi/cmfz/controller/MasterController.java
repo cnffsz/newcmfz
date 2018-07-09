@@ -31,6 +31,17 @@ public class MasterController {
     @Autowired
     private MasterService masterService;
 
+
+    @RequestMapping("/showAllMaster")
+    @ResponseBody
+    public List<Master> showAllMaster(){
+
+       return masterService.queryAll();
+    }
+
+
+
+
     @RequestMapping("/showMaster")
     @ResponseBody
     public Map<String,Object> getMaster(@RequestParam("rows")int totalSize, @RequestParam("page")int pageIndex,String sele,String seleName){
