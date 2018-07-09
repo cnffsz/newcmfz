@@ -21,11 +21,11 @@
                 {field:'masterSummary',title:'上师简介',width:200,sortable:true},
                 {field:'status',title:'操作',width:60,align:'center',formatter:function(value,row,index){
 
-                    return "<a class='easyui-linkbutton' data-options=\"height:20,iconCls:'icon-edit'\" onClick='modMasterBtn(this)'>修改</a>";
+                    return "<a  name ='m1' class='easyui-linkbutton' data-options=\"height:20,iconCls:'icon-edit'\" onClick='modMasterBtn(this)'>修改</a>";
                 }}
             ]],
             onLoadSuccess:function(){
-                $.parser.parse();
+                $("a[name='m1']").linkbutton({});
             },
             pagination:true,
             pageList : [ 5, 10, 15, 20, 25 ],

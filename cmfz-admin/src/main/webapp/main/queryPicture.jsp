@@ -39,9 +39,11 @@ $(function(){
             },
 	        {field:"operation",title:"操作",width:40,formatter:function(value,row,index){
 	        	//$("#del").linkbutton({});
-				return "<a class='easyui-linkbutton' data-options=\"height:20,iconCls:'icon-edit'\" onClick='updatebtn()'>修改</a> ";
+				return "<a  name ='pic1' class='easyui-linkbutton' data-options=\"height:20,iconCls:'icon-edit'\" onClick='updatebtn()'>修改</a> ";
 			}},
 	    ]],
+
+        //显示表格前面的加号，展示细节
         view:detailview,
         detailFormatter: function(rowIndex, rowData) {
             return '<table><tr>' +
@@ -53,9 +55,9 @@ $(function(){
 
 
             onLoadSuccess:function(){
-	    	/* console.log(11);
-	    	$(".btn").linkbutton({}); */
-	    	$.parser.parse(); 
+
+                $("a[name='pic1']").linkbutton({});
+
 	    },
 	    pagination:true,
 	    pageList : [ 5, 10, 15, 20, 25 ],
